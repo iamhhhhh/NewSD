@@ -18,9 +18,32 @@ namespace NewSD.Controllers
 
 
         [HttpPost]
-        public ActionResult LoginbyUsernameandPassword(string UserName, string Password)
+        public ActionResult MyScore(string UserName, string Password)
         {
-            return View("MyScore");
+            if (AuthenAD(UserName, Password) == true)
+                return View("MyScore");
+            else
+                return View("Login");
+        }
+
+        public ActionResult GoMyScore()
+        {
+                return View("MyScore");
+        }
+
+
+
+        public Boolean AuthenAD(string UserName,string Password)
+        {
+            if ( 0==0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }
