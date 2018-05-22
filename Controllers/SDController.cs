@@ -15,16 +15,12 @@ namespace NewSD.Controllers
         {
             return View();
         }
-       
+
 
         [HttpPost]
-        public ActionResult LoginbyUsernameandPassword(string UserName,string Password)
+        public ActionResult LoginbyUsernameandPassword(string UserName, string Password)
         {
-            if (ModelState.IsValid)
-            {
-                //TODO: SubscribeUser(model.Email);
-            }
-            return View("Index");
+            return View("MyScore");
         }
     }
 }
