@@ -61,6 +61,6 @@ E:\Gitkraken\NewSD\NewSD\bin\System.Web.Webpages.Deployment.xml
 E:\Gitkraken\NewSD\NewSD\bin\System.Web.Webpages.Razor.xml
 E:\Gitkraken\NewSD\NewSD\bin\System.Web.Helpers.xml
 E:\Gitkraken\NewSD\NewSD\bin\System.Web.Mvc.xml
-E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.csprojResolveAssemblyReference.cache
 E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.dll
 E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.pdb
+E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.csprojResolveAssemblyReference.cache
