@@ -167,6 +167,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Operation.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Score.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

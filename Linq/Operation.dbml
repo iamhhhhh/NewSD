@@ -1,10 +1,100 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NewSD" Class="OperationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=173.232.15.162;Initial Catalog=NewSD;Persist Security Info=True;User ID=ponddev" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NewSDConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.[User]" Member="Users">
-    <Type Name="User">
-      <Column Name="UserName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SD2017" Class="OperationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=173.232.15.162;Initial Catalog=SD2017;Persist Security Info=True;User ID=ponddev" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SD2017ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.SD_User" Member="SD_Users">
+    <Type Name="SD_User">
+      <Column Name="SeasonID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserFullname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="UserNickname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="UserLinename" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="StartDateShake" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDateShake" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StartDateLine" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDateLine" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TeamID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ExceptSD" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ExceptLine" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="MemberStatus" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LastUpdatedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="User_login" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UserLevel" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="SystemLevel" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SD_Team" Member="SD_Teams">
+    <Type Name="SD_Team">
+      <Column Name="SeasonID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TeamID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TeamName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TeamSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SloganTeam" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LastUpdatedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SD_Season" Member="SD_Seasons">
+    <Type Name="SD_Season">
+      <Column Name="SeasonID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SeasonName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SeasonYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SeasonEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SeasonSDMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonSDMax" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonTeamNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonExit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonSTD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonLMMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonLSMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonLPMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonLSP" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="SeasonDateAll" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonSDAll" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonLineAll" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonSDTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonWord" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SeasonBG" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LastUpdatedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SD_Score" Member="SD_Scores">
+    <Type Name="SD_Score">
+      <Column Name="SD_ScoreID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SD_UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SD_UserDep" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="SD_UserGroup" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="SD_SeasonID" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="SD_FDateScore" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SD_DateScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SD_MonthScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SD_YearScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SD_TimeStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SD_TimeEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SD_TotalTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SD_DateRecord" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SD_Group" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="SD_Category" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="SD_ScoreReal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SD_ScoreAll" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SD_Location" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SD_WorkHour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SD_CreatedBy" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SD_UpdatedBy" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SD_CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SD_LastUpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SD_Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

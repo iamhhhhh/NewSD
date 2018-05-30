@@ -22,7 +22,7 @@ namespace NewSD.Linq
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NewSD")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="SD2017")]
 	public partial class OperationDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,10 +30,22 @@ namespace NewSD.Linq
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertSD_User(SD_User instance);
+    partial void UpdateSD_User(SD_User instance);
+    partial void DeleteSD_User(SD_User instance);
+    partial void InsertSD_Team(SD_Team instance);
+    partial void UpdateSD_Team(SD_Team instance);
+    partial void DeleteSD_Team(SD_Team instance);
+    partial void InsertSD_Season(SD_Season instance);
+    partial void UpdateSD_Season(SD_Season instance);
+    partial void DeleteSD_Season(SD_Season instance);
+    partial void InsertSD_Score(SD_Score instance);
+    partial void UpdateSD_Score(SD_Score instance);
+    partial void DeleteSD_Score(SD_Score instance);
     #endregion
 		
 		public OperationDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["NewSDConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["SD2017ConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -62,74 +74,2131 @@ namespace NewSD.Linq
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<User> Users
+		public System.Data.Linq.Table<SD_User> SD_Users
 		{
 			get
 			{
-				return this.GetTable<User>();
+				return this.GetTable<SD_User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SD_Team> SD_Teams
+		{
+			get
+			{
+				return this.GetTable<SD_Team>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SD_Season> SD_Seasons
+		{
+			get
+			{
+				return this.GetTable<SD_Season>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SD_Score> SD_Scores
+		{
+			get
+			{
+				return this.GetTable<SD_Score>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	public partial class User
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SD_User")]
+	public partial class SD_User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private string _UserName;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _Password;
+		private int _SeasonID;
 		
-		private string _Name;
+		private int _UserID;
 		
-		public User()
+		private string _UserFullname;
+		
+		private string _UserNickname;
+		
+		private string _UserLinename;
+		
+		private System.Nullable<System.DateTime> _StartDateShake;
+		
+		private System.Nullable<System.DateTime> _EndDateShake;
+		
+		private System.Nullable<System.DateTime> _StartDateLine;
+		
+		private System.Nullable<System.DateTime> _EndDateLine;
+		
+		private System.Nullable<int> _TeamID;
+		
+		private string _Department;
+		
+		private System.Nullable<char> _ExceptSD;
+		
+		private System.Nullable<char> _ExceptLine;
+		
+		private System.Nullable<char> _MemberStatus;
+		
+		private string _CreatedBy;
+		
+		private string _LastUpdatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<System.DateTime> _LastUpdatedDate;
+		
+		private System.Nullable<char> _Status;
+		
+		private string _User_login;
+		
+		private System.Nullable<char> _UserLevel;
+		
+		private System.Nullable<char> _SystemLevel;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSeasonIDChanging(int value);
+    partial void OnSeasonIDChanged();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
+    partial void OnUserFullnameChanging(string value);
+    partial void OnUserFullnameChanged();
+    partial void OnUserNicknameChanging(string value);
+    partial void OnUserNicknameChanged();
+    partial void OnUserLinenameChanging(string value);
+    partial void OnUserLinenameChanged();
+    partial void OnStartDateShakeChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartDateShakeChanged();
+    partial void OnEndDateShakeChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndDateShakeChanged();
+    partial void OnStartDateLineChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartDateLineChanged();
+    partial void OnEndDateLineChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndDateLineChanged();
+    partial void OnTeamIDChanging(System.Nullable<int> value);
+    partial void OnTeamIDChanged();
+    partial void OnDepartmentChanging(string value);
+    partial void OnDepartmentChanged();
+    partial void OnExceptSDChanging(System.Nullable<char> value);
+    partial void OnExceptSDChanged();
+    partial void OnExceptLineChanging(System.Nullable<char> value);
+    partial void OnExceptLineChanged();
+    partial void OnMemberStatusChanging(System.Nullable<char> value);
+    partial void OnMemberStatusChanged();
+    partial void OnCreatedByChanging(string value);
+    partial void OnCreatedByChanged();
+    partial void OnLastUpdatedByChanging(string value);
+    partial void OnLastUpdatedByChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    partial void OnLastUpdatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastUpdatedDateChanged();
+    partial void OnStatusChanging(System.Nullable<char> value);
+    partial void OnStatusChanged();
+    partial void OnUser_loginChanging(string value);
+    partial void OnUser_loginChanged();
+    partial void OnUserLevelChanging(System.Nullable<char> value);
+    partial void OnUserLevelChanged();
+    partial void OnSystemLevelChanging(System.Nullable<char> value);
+    partial void OnSystemLevelChanged();
+    #endregion
+		
+		public SD_User()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(50)")]
-		public string UserName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int SeasonID
 		{
 			get
 			{
-				return this._UserName;
+				return this._SeasonID;
 			}
 			set
 			{
-				if ((this._UserName != value))
+				if ((this._SeasonID != value))
 				{
-					this._UserName = value;
+					this.OnSeasonIDChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonID = value;
+					this.SendPropertyChanged("SeasonID");
+					this.OnSeasonIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(16)")]
-		public string Password
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int UserID
 		{
 			get
 			{
-				return this._Password;
+				return this._UserID;
 			}
 			set
 			{
-				if ((this._Password != value))
+				if ((this._UserID != value))
 				{
-					this._Password = value;
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
-		public string Name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserFullname", DbType="VarChar(100)")]
+		public string UserFullname
 		{
 			get
 			{
-				return this._Name;
+				return this._UserFullname;
 			}
 			set
 			{
-				if ((this._Name != value))
+				if ((this._UserFullname != value))
 				{
-					this._Name = value;
+					this.OnUserFullnameChanging(value);
+					this.SendPropertyChanging();
+					this._UserFullname = value;
+					this.SendPropertyChanged("UserFullname");
+					this.OnUserFullnameChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserNickname", DbType="VarChar(20)")]
+		public string UserNickname
+		{
+			get
+			{
+				return this._UserNickname;
+			}
+			set
+			{
+				if ((this._UserNickname != value))
+				{
+					this.OnUserNicknameChanging(value);
+					this.SendPropertyChanging();
+					this._UserNickname = value;
+					this.SendPropertyChanged("UserNickname");
+					this.OnUserNicknameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserLinename", DbType="VarChar(30)")]
+		public string UserLinename
+		{
+			get
+			{
+				return this._UserLinename;
+			}
+			set
+			{
+				if ((this._UserLinename != value))
+				{
+					this.OnUserLinenameChanging(value);
+					this.SendPropertyChanging();
+					this._UserLinename = value;
+					this.SendPropertyChanged("UserLinename");
+					this.OnUserLinenameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDateShake", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StartDateShake
+		{
+			get
+			{
+				return this._StartDateShake;
+			}
+			set
+			{
+				if ((this._StartDateShake != value))
+				{
+					this.OnStartDateShakeChanging(value);
+					this.SendPropertyChanging();
+					this._StartDateShake = value;
+					this.SendPropertyChanged("StartDateShake");
+					this.OnStartDateShakeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDateShake", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EndDateShake
+		{
+			get
+			{
+				return this._EndDateShake;
+			}
+			set
+			{
+				if ((this._EndDateShake != value))
+				{
+					this.OnEndDateShakeChanging(value);
+					this.SendPropertyChanging();
+					this._EndDateShake = value;
+					this.SendPropertyChanged("EndDateShake");
+					this.OnEndDateShakeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDateLine", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StartDateLine
+		{
+			get
+			{
+				return this._StartDateLine;
+			}
+			set
+			{
+				if ((this._StartDateLine != value))
+				{
+					this.OnStartDateLineChanging(value);
+					this.SendPropertyChanging();
+					this._StartDateLine = value;
+					this.SendPropertyChanged("StartDateLine");
+					this.OnStartDateLineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDateLine", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EndDateLine
+		{
+			get
+			{
+				return this._EndDateLine;
+			}
+			set
+			{
+				if ((this._EndDateLine != value))
+				{
+					this.OnEndDateLineChanging(value);
+					this.SendPropertyChanging();
+					this._EndDateLine = value;
+					this.SendPropertyChanged("EndDateLine");
+					this.OnEndDateLineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamID", DbType="Int")]
+		public System.Nullable<int> TeamID
+		{
+			get
+			{
+				return this._TeamID;
+			}
+			set
+			{
+				if ((this._TeamID != value))
+				{
+					this.OnTeamIDChanging(value);
+					this.SendPropertyChanging();
+					this._TeamID = value;
+					this.SendPropertyChanged("TeamID");
+					this.OnTeamIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="VarChar(15)")]
+		public string Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this.OnDepartmentChanging(value);
+					this.SendPropertyChanging();
+					this._Department = value;
+					this.SendPropertyChanged("Department");
+					this.OnDepartmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExceptSD", DbType="Char(1)")]
+		public System.Nullable<char> ExceptSD
+		{
+			get
+			{
+				return this._ExceptSD;
+			}
+			set
+			{
+				if ((this._ExceptSD != value))
+				{
+					this.OnExceptSDChanging(value);
+					this.SendPropertyChanging();
+					this._ExceptSD = value;
+					this.SendPropertyChanged("ExceptSD");
+					this.OnExceptSDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExceptLine", DbType="Char(1)")]
+		public System.Nullable<char> ExceptLine
+		{
+			get
+			{
+				return this._ExceptLine;
+			}
+			set
+			{
+				if ((this._ExceptLine != value))
+				{
+					this.OnExceptLineChanging(value);
+					this.SendPropertyChanging();
+					this._ExceptLine = value;
+					this.SendPropertyChanged("ExceptLine");
+					this.OnExceptLineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberStatus", DbType="Char(1)")]
+		public System.Nullable<char> MemberStatus
+		{
+			get
+			{
+				return this._MemberStatus;
+			}
+			set
+			{
+				if ((this._MemberStatus != value))
+				{
+					this.OnMemberStatusChanging(value);
+					this.SendPropertyChanging();
+					this._MemberStatus = value;
+					this.SendPropertyChanged("MemberStatus");
+					this.OnMemberStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="VarChar(20)")]
+		public string CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdatedBy", DbType="VarChar(20)")]
+		public string LastUpdatedBy
+		{
+			get
+			{
+				return this._LastUpdatedBy;
+			}
+			set
+			{
+				if ((this._LastUpdatedBy != value))
+				{
+					this.OnLastUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._LastUpdatedBy = value;
+					this.SendPropertyChanged("LastUpdatedBy");
+					this.OnLastUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastUpdatedDate
+		{
+			get
+			{
+				return this._LastUpdatedDate;
+			}
+			set
+			{
+				if ((this._LastUpdatedDate != value))
+				{
+					this.OnLastUpdatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._LastUpdatedDate = value;
+					this.SendPropertyChanged("LastUpdatedDate");
+					this.OnLastUpdatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Char(1)")]
+		public System.Nullable<char> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_login", DbType="VarChar(50)")]
+		public string User_login
+		{
+			get
+			{
+				return this._User_login;
+			}
+			set
+			{
+				if ((this._User_login != value))
+				{
+					this.OnUser_loginChanging(value);
+					this.SendPropertyChanging();
+					this._User_login = value;
+					this.SendPropertyChanged("User_login");
+					this.OnUser_loginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserLevel", DbType="Char(1)")]
+		public System.Nullable<char> UserLevel
+		{
+			get
+			{
+				return this._UserLevel;
+			}
+			set
+			{
+				if ((this._UserLevel != value))
+				{
+					this.OnUserLevelChanging(value);
+					this.SendPropertyChanging();
+					this._UserLevel = value;
+					this.SendPropertyChanged("UserLevel");
+					this.OnUserLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SystemLevel", DbType="Char(1)")]
+		public System.Nullable<char> SystemLevel
+		{
+			get
+			{
+				return this._SystemLevel;
+			}
+			set
+			{
+				if ((this._SystemLevel != value))
+				{
+					this.OnSystemLevelChanging(value);
+					this.SendPropertyChanging();
+					this._SystemLevel = value;
+					this.SendPropertyChanged("SystemLevel");
+					this.OnSystemLevelChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SD_Team")]
+	public partial class SD_Team : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SeasonID;
+		
+		private int _TeamID;
+		
+		private string _TeamName;
+		
+		private System.Nullable<int> _TeamSeq;
+		
+		private string _SloganTeam;
+		
+		private string _CreatedBy;
+		
+		private string _LastUpdatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<System.DateTime> _LastUpdatedDate;
+		
+		private System.Nullable<char> _Status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSeasonIDChanging(int value);
+    partial void OnSeasonIDChanged();
+    partial void OnTeamIDChanging(int value);
+    partial void OnTeamIDChanged();
+    partial void OnTeamNameChanging(string value);
+    partial void OnTeamNameChanged();
+    partial void OnTeamSeqChanging(System.Nullable<int> value);
+    partial void OnTeamSeqChanged();
+    partial void OnSloganTeamChanging(string value);
+    partial void OnSloganTeamChanged();
+    partial void OnCreatedByChanging(string value);
+    partial void OnCreatedByChanged();
+    partial void OnLastUpdatedByChanging(string value);
+    partial void OnLastUpdatedByChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    partial void OnLastUpdatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastUpdatedDateChanged();
+    partial void OnStatusChanging(System.Nullable<char> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public SD_Team()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int SeasonID
+		{
+			get
+			{
+				return this._SeasonID;
+			}
+			set
+			{
+				if ((this._SeasonID != value))
+				{
+					this.OnSeasonIDChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonID = value;
+					this.SendPropertyChanged("SeasonID");
+					this.OnSeasonIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int TeamID
+		{
+			get
+			{
+				return this._TeamID;
+			}
+			set
+			{
+				if ((this._TeamID != value))
+				{
+					this.OnTeamIDChanging(value);
+					this.SendPropertyChanging();
+					this._TeamID = value;
+					this.SendPropertyChanged("TeamID");
+					this.OnTeamIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamName", DbType="VarChar(50)")]
+		public string TeamName
+		{
+			get
+			{
+				return this._TeamName;
+			}
+			set
+			{
+				if ((this._TeamName != value))
+				{
+					this.OnTeamNameChanging(value);
+					this.SendPropertyChanging();
+					this._TeamName = value;
+					this.SendPropertyChanged("TeamName");
+					this.OnTeamNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamSeq", DbType="Int")]
+		public System.Nullable<int> TeamSeq
+		{
+			get
+			{
+				return this._TeamSeq;
+			}
+			set
+			{
+				if ((this._TeamSeq != value))
+				{
+					this.OnTeamSeqChanging(value);
+					this.SendPropertyChanging();
+					this._TeamSeq = value;
+					this.SendPropertyChanged("TeamSeq");
+					this.OnTeamSeqChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SloganTeam", DbType="VarChar(500)")]
+		public string SloganTeam
+		{
+			get
+			{
+				return this._SloganTeam;
+			}
+			set
+			{
+				if ((this._SloganTeam != value))
+				{
+					this.OnSloganTeamChanging(value);
+					this.SendPropertyChanging();
+					this._SloganTeam = value;
+					this.SendPropertyChanged("SloganTeam");
+					this.OnSloganTeamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="VarChar(20)")]
+		public string CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdatedBy", DbType="VarChar(20)")]
+		public string LastUpdatedBy
+		{
+			get
+			{
+				return this._LastUpdatedBy;
+			}
+			set
+			{
+				if ((this._LastUpdatedBy != value))
+				{
+					this.OnLastUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._LastUpdatedBy = value;
+					this.SendPropertyChanged("LastUpdatedBy");
+					this.OnLastUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastUpdatedDate
+		{
+			get
+			{
+				return this._LastUpdatedDate;
+			}
+			set
+			{
+				if ((this._LastUpdatedDate != value))
+				{
+					this.OnLastUpdatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._LastUpdatedDate = value;
+					this.SendPropertyChanged("LastUpdatedDate");
+					this.OnLastUpdatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Char(1)")]
+		public System.Nullable<char> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SD_Season")]
+	public partial class SD_Season : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SeasonID;
+		
+		private string _SeasonName;
+		
+		private System.Nullable<int> _SeasonYear;
+		
+		private System.Nullable<System.DateTime> _SeasonStartDate;
+		
+		private System.Nullable<System.DateTime> _SeasonEndDate;
+		
+		private System.Nullable<int> _SeasonSDMin;
+		
+		private System.Nullable<int> _SeasonSDMax;
+		
+		private System.Nullable<int> _SeasonTeamNo;
+		
+		private System.Nullable<int> _SeasonExit;
+		
+		private System.Nullable<int> _SeasonSTD;
+		
+		private System.Nullable<int> _SeasonLMMin;
+		
+		private System.Nullable<int> _SeasonLSMin;
+		
+		private System.Nullable<int> _SeasonLPMin;
+		
+		private System.Nullable<char> _SeasonLSP;
+		
+		private System.Nullable<int> _SeasonDateAll;
+		
+		private System.Nullable<int> _SeasonSDAll;
+		
+		private System.Nullable<int> _SeasonLineAll;
+		
+		private System.Nullable<int> _SeasonSDTime;
+		
+		private string _SeasonWord;
+		
+		private string _SeasonBG;
+		
+		private string _CreatedBy;
+		
+		private string _LastUpdatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<System.DateTime> _LastUpdatedDate;
+		
+		private System.Nullable<char> _Status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSeasonIDChanging(int value);
+    partial void OnSeasonIDChanged();
+    partial void OnSeasonNameChanging(string value);
+    partial void OnSeasonNameChanged();
+    partial void OnSeasonYearChanging(System.Nullable<int> value);
+    partial void OnSeasonYearChanged();
+    partial void OnSeasonStartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnSeasonStartDateChanged();
+    partial void OnSeasonEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnSeasonEndDateChanged();
+    partial void OnSeasonSDMinChanging(System.Nullable<int> value);
+    partial void OnSeasonSDMinChanged();
+    partial void OnSeasonSDMaxChanging(System.Nullable<int> value);
+    partial void OnSeasonSDMaxChanged();
+    partial void OnSeasonTeamNoChanging(System.Nullable<int> value);
+    partial void OnSeasonTeamNoChanged();
+    partial void OnSeasonExitChanging(System.Nullable<int> value);
+    partial void OnSeasonExitChanged();
+    partial void OnSeasonSTDChanging(System.Nullable<int> value);
+    partial void OnSeasonSTDChanged();
+    partial void OnSeasonLMMinChanging(System.Nullable<int> value);
+    partial void OnSeasonLMMinChanged();
+    partial void OnSeasonLSMinChanging(System.Nullable<int> value);
+    partial void OnSeasonLSMinChanged();
+    partial void OnSeasonLPMinChanging(System.Nullable<int> value);
+    partial void OnSeasonLPMinChanged();
+    partial void OnSeasonLSPChanging(System.Nullable<char> value);
+    partial void OnSeasonLSPChanged();
+    partial void OnSeasonDateAllChanging(System.Nullable<int> value);
+    partial void OnSeasonDateAllChanged();
+    partial void OnSeasonSDAllChanging(System.Nullable<int> value);
+    partial void OnSeasonSDAllChanged();
+    partial void OnSeasonLineAllChanging(System.Nullable<int> value);
+    partial void OnSeasonLineAllChanged();
+    partial void OnSeasonSDTimeChanging(System.Nullable<int> value);
+    partial void OnSeasonSDTimeChanged();
+    partial void OnSeasonWordChanging(string value);
+    partial void OnSeasonWordChanged();
+    partial void OnSeasonBGChanging(string value);
+    partial void OnSeasonBGChanged();
+    partial void OnCreatedByChanging(string value);
+    partial void OnCreatedByChanged();
+    partial void OnLastUpdatedByChanging(string value);
+    partial void OnLastUpdatedByChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    partial void OnLastUpdatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastUpdatedDateChanged();
+    partial void OnStatusChanging(System.Nullable<char> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public SD_Season()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int SeasonID
+		{
+			get
+			{
+				return this._SeasonID;
+			}
+			set
+			{
+				if ((this._SeasonID != value))
+				{
+					this.OnSeasonIDChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonID = value;
+					this.SendPropertyChanged("SeasonID");
+					this.OnSeasonIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonName", DbType="VarChar(50)")]
+		public string SeasonName
+		{
+			get
+			{
+				return this._SeasonName;
+			}
+			set
+			{
+				if ((this._SeasonName != value))
+				{
+					this.OnSeasonNameChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonName = value;
+					this.SendPropertyChanged("SeasonName");
+					this.OnSeasonNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonYear", DbType="Int")]
+		public System.Nullable<int> SeasonYear
+		{
+			get
+			{
+				return this._SeasonYear;
+			}
+			set
+			{
+				if ((this._SeasonYear != value))
+				{
+					this.OnSeasonYearChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonYear = value;
+					this.SendPropertyChanged("SeasonYear");
+					this.OnSeasonYearChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonStartDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SeasonStartDate
+		{
+			get
+			{
+				return this._SeasonStartDate;
+			}
+			set
+			{
+				if ((this._SeasonStartDate != value))
+				{
+					this.OnSeasonStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonStartDate = value;
+					this.SendPropertyChanged("SeasonStartDate");
+					this.OnSeasonStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonEndDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SeasonEndDate
+		{
+			get
+			{
+				return this._SeasonEndDate;
+			}
+			set
+			{
+				if ((this._SeasonEndDate != value))
+				{
+					this.OnSeasonEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonEndDate = value;
+					this.SendPropertyChanged("SeasonEndDate");
+					this.OnSeasonEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonSDMin", DbType="Int")]
+		public System.Nullable<int> SeasonSDMin
+		{
+			get
+			{
+				return this._SeasonSDMin;
+			}
+			set
+			{
+				if ((this._SeasonSDMin != value))
+				{
+					this.OnSeasonSDMinChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonSDMin = value;
+					this.SendPropertyChanged("SeasonSDMin");
+					this.OnSeasonSDMinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonSDMax", DbType="Int")]
+		public System.Nullable<int> SeasonSDMax
+		{
+			get
+			{
+				return this._SeasonSDMax;
+			}
+			set
+			{
+				if ((this._SeasonSDMax != value))
+				{
+					this.OnSeasonSDMaxChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonSDMax = value;
+					this.SendPropertyChanged("SeasonSDMax");
+					this.OnSeasonSDMaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonTeamNo", DbType="Int")]
+		public System.Nullable<int> SeasonTeamNo
+		{
+			get
+			{
+				return this._SeasonTeamNo;
+			}
+			set
+			{
+				if ((this._SeasonTeamNo != value))
+				{
+					this.OnSeasonTeamNoChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonTeamNo = value;
+					this.SendPropertyChanged("SeasonTeamNo");
+					this.OnSeasonTeamNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonExit", DbType="Int")]
+		public System.Nullable<int> SeasonExit
+		{
+			get
+			{
+				return this._SeasonExit;
+			}
+			set
+			{
+				if ((this._SeasonExit != value))
+				{
+					this.OnSeasonExitChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonExit = value;
+					this.SendPropertyChanged("SeasonExit");
+					this.OnSeasonExitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonSTD", DbType="Int")]
+		public System.Nullable<int> SeasonSTD
+		{
+			get
+			{
+				return this._SeasonSTD;
+			}
+			set
+			{
+				if ((this._SeasonSTD != value))
+				{
+					this.OnSeasonSTDChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonSTD = value;
+					this.SendPropertyChanged("SeasonSTD");
+					this.OnSeasonSTDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonLMMin", DbType="Int")]
+		public System.Nullable<int> SeasonLMMin
+		{
+			get
+			{
+				return this._SeasonLMMin;
+			}
+			set
+			{
+				if ((this._SeasonLMMin != value))
+				{
+					this.OnSeasonLMMinChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonLMMin = value;
+					this.SendPropertyChanged("SeasonLMMin");
+					this.OnSeasonLMMinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonLSMin", DbType="Int")]
+		public System.Nullable<int> SeasonLSMin
+		{
+			get
+			{
+				return this._SeasonLSMin;
+			}
+			set
+			{
+				if ((this._SeasonLSMin != value))
+				{
+					this.OnSeasonLSMinChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonLSMin = value;
+					this.SendPropertyChanged("SeasonLSMin");
+					this.OnSeasonLSMinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonLPMin", DbType="Int")]
+		public System.Nullable<int> SeasonLPMin
+		{
+			get
+			{
+				return this._SeasonLPMin;
+			}
+			set
+			{
+				if ((this._SeasonLPMin != value))
+				{
+					this.OnSeasonLPMinChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonLPMin = value;
+					this.SendPropertyChanged("SeasonLPMin");
+					this.OnSeasonLPMinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonLSP", DbType="Char(1)")]
+		public System.Nullable<char> SeasonLSP
+		{
+			get
+			{
+				return this._SeasonLSP;
+			}
+			set
+			{
+				if ((this._SeasonLSP != value))
+				{
+					this.OnSeasonLSPChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonLSP = value;
+					this.SendPropertyChanged("SeasonLSP");
+					this.OnSeasonLSPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonDateAll", DbType="Int")]
+		public System.Nullable<int> SeasonDateAll
+		{
+			get
+			{
+				return this._SeasonDateAll;
+			}
+			set
+			{
+				if ((this._SeasonDateAll != value))
+				{
+					this.OnSeasonDateAllChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonDateAll = value;
+					this.SendPropertyChanged("SeasonDateAll");
+					this.OnSeasonDateAllChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonSDAll", DbType="Int")]
+		public System.Nullable<int> SeasonSDAll
+		{
+			get
+			{
+				return this._SeasonSDAll;
+			}
+			set
+			{
+				if ((this._SeasonSDAll != value))
+				{
+					this.OnSeasonSDAllChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonSDAll = value;
+					this.SendPropertyChanged("SeasonSDAll");
+					this.OnSeasonSDAllChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonLineAll", DbType="Int")]
+		public System.Nullable<int> SeasonLineAll
+		{
+			get
+			{
+				return this._SeasonLineAll;
+			}
+			set
+			{
+				if ((this._SeasonLineAll != value))
+				{
+					this.OnSeasonLineAllChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonLineAll = value;
+					this.SendPropertyChanged("SeasonLineAll");
+					this.OnSeasonLineAllChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonSDTime", DbType="Int")]
+		public System.Nullable<int> SeasonSDTime
+		{
+			get
+			{
+				return this._SeasonSDTime;
+			}
+			set
+			{
+				if ((this._SeasonSDTime != value))
+				{
+					this.OnSeasonSDTimeChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonSDTime = value;
+					this.SendPropertyChanged("SeasonSDTime");
+					this.OnSeasonSDTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonWord", DbType="VarChar(150)")]
+		public string SeasonWord
+		{
+			get
+			{
+				return this._SeasonWord;
+			}
+			set
+			{
+				if ((this._SeasonWord != value))
+				{
+					this.OnSeasonWordChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonWord = value;
+					this.SendPropertyChanged("SeasonWord");
+					this.OnSeasonWordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonBG", DbType="VarChar(150)")]
+		public string SeasonBG
+		{
+			get
+			{
+				return this._SeasonBG;
+			}
+			set
+			{
+				if ((this._SeasonBG != value))
+				{
+					this.OnSeasonBGChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonBG = value;
+					this.SendPropertyChanged("SeasonBG");
+					this.OnSeasonBGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="VarChar(20)")]
+		public string CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdatedBy", DbType="VarChar(20)")]
+		public string LastUpdatedBy
+		{
+			get
+			{
+				return this._LastUpdatedBy;
+			}
+			set
+			{
+				if ((this._LastUpdatedBy != value))
+				{
+					this.OnLastUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._LastUpdatedBy = value;
+					this.SendPropertyChanged("LastUpdatedBy");
+					this.OnLastUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastUpdatedDate
+		{
+			get
+			{
+				return this._LastUpdatedDate;
+			}
+			set
+			{
+				if ((this._LastUpdatedDate != value))
+				{
+					this.OnLastUpdatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._LastUpdatedDate = value;
+					this.SendPropertyChanged("LastUpdatedDate");
+					this.OnLastUpdatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Char(1)")]
+		public System.Nullable<char> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SD_Score")]
+	public partial class SD_Score : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SD_ScoreID;
+		
+		private System.Nullable<int> _SD_UserID;
+		
+		private string _SD_UserDep;
+		
+		private string _SD_UserGroup;
+		
+		private string _SD_SeasonID;
+		
+		private System.Nullable<System.DateTime> _SD_FDateScore;
+		
+		private System.Nullable<int> _SD_DateScore;
+		
+		private System.Nullable<int> _SD_MonthScore;
+		
+		private System.Nullable<int> _SD_YearScore;
+		
+		private System.Nullable<System.DateTime> _SD_TimeStart;
+		
+		private System.Nullable<System.DateTime> _SD_TimeEnd;
+		
+		private System.Nullable<int> _SD_TotalTime;
+		
+		private System.Nullable<System.DateTime> _SD_DateRecord;
+		
+		private System.Nullable<char> _SD_Group;
+		
+		private string _SD_Category;
+		
+		private System.Nullable<int> _SD_ScoreReal;
+		
+		private System.Nullable<int> _SD_ScoreAll;
+		
+		private System.Nullable<int> _SD_Location;
+		
+		private System.Nullable<int> _SD_WorkHour;
+		
+		private string _SD_CreatedBy;
+		
+		private string _SD_UpdatedBy;
+		
+		private System.Nullable<System.DateTime> _SD_CreatedDate;
+		
+		private System.Nullable<System.DateTime> _SD_LastUpdatedDate;
+		
+		private System.Nullable<char> _SD_Status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSD_ScoreIDChanging(int value);
+    partial void OnSD_ScoreIDChanged();
+    partial void OnSD_UserIDChanging(System.Nullable<int> value);
+    partial void OnSD_UserIDChanged();
+    partial void OnSD_UserDepChanging(string value);
+    partial void OnSD_UserDepChanged();
+    partial void OnSD_UserGroupChanging(string value);
+    partial void OnSD_UserGroupChanged();
+    partial void OnSD_SeasonIDChanging(string value);
+    partial void OnSD_SeasonIDChanged();
+    partial void OnSD_FDateScoreChanging(System.Nullable<System.DateTime> value);
+    partial void OnSD_FDateScoreChanged();
+    partial void OnSD_DateScoreChanging(System.Nullable<int> value);
+    partial void OnSD_DateScoreChanged();
+    partial void OnSD_MonthScoreChanging(System.Nullable<int> value);
+    partial void OnSD_MonthScoreChanged();
+    partial void OnSD_YearScoreChanging(System.Nullable<int> value);
+    partial void OnSD_YearScoreChanged();
+    partial void OnSD_TimeStartChanging(System.Nullable<System.DateTime> value);
+    partial void OnSD_TimeStartChanged();
+    partial void OnSD_TimeEndChanging(System.Nullable<System.DateTime> value);
+    partial void OnSD_TimeEndChanged();
+    partial void OnSD_TotalTimeChanging(System.Nullable<int> value);
+    partial void OnSD_TotalTimeChanged();
+    partial void OnSD_DateRecordChanging(System.Nullable<System.DateTime> value);
+    partial void OnSD_DateRecordChanged();
+    partial void OnSD_GroupChanging(System.Nullable<char> value);
+    partial void OnSD_GroupChanged();
+    partial void OnSD_CategoryChanging(string value);
+    partial void OnSD_CategoryChanged();
+    partial void OnSD_ScoreRealChanging(System.Nullable<int> value);
+    partial void OnSD_ScoreRealChanged();
+    partial void OnSD_ScoreAllChanging(System.Nullable<int> value);
+    partial void OnSD_ScoreAllChanged();
+    partial void OnSD_LocationChanging(System.Nullable<int> value);
+    partial void OnSD_LocationChanged();
+    partial void OnSD_WorkHourChanging(System.Nullable<int> value);
+    partial void OnSD_WorkHourChanged();
+    partial void OnSD_CreatedByChanging(string value);
+    partial void OnSD_CreatedByChanged();
+    partial void OnSD_UpdatedByChanging(string value);
+    partial void OnSD_UpdatedByChanged();
+    partial void OnSD_CreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnSD_CreatedDateChanged();
+    partial void OnSD_LastUpdatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnSD_LastUpdatedDateChanged();
+    partial void OnSD_StatusChanging(System.Nullable<char> value);
+    partial void OnSD_StatusChanged();
+    #endregion
+		
+		public SD_Score()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_ScoreID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SD_ScoreID
+		{
+			get
+			{
+				return this._SD_ScoreID;
+			}
+			set
+			{
+				if ((this._SD_ScoreID != value))
+				{
+					this.OnSD_ScoreIDChanging(value);
+					this.SendPropertyChanging();
+					this._SD_ScoreID = value;
+					this.SendPropertyChanged("SD_ScoreID");
+					this.OnSD_ScoreIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_UserID", DbType="Int")]
+		public System.Nullable<int> SD_UserID
+		{
+			get
+			{
+				return this._SD_UserID;
+			}
+			set
+			{
+				if ((this._SD_UserID != value))
+				{
+					this.OnSD_UserIDChanging(value);
+					this.SendPropertyChanging();
+					this._SD_UserID = value;
+					this.SendPropertyChanged("SD_UserID");
+					this.OnSD_UserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_UserDep", DbType="Char(15)")]
+		public string SD_UserDep
+		{
+			get
+			{
+				return this._SD_UserDep;
+			}
+			set
+			{
+				if ((this._SD_UserDep != value))
+				{
+					this.OnSD_UserDepChanging(value);
+					this.SendPropertyChanging();
+					this._SD_UserDep = value;
+					this.SendPropertyChanged("SD_UserDep");
+					this.OnSD_UserDepChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_UserGroup", DbType="Char(50)")]
+		public string SD_UserGroup
+		{
+			get
+			{
+				return this._SD_UserGroup;
+			}
+			set
+			{
+				if ((this._SD_UserGroup != value))
+				{
+					this.OnSD_UserGroupChanging(value);
+					this.SendPropertyChanging();
+					this._SD_UserGroup = value;
+					this.SendPropertyChanged("SD_UserGroup");
+					this.OnSD_UserGroupChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_SeasonID", DbType="Char(15)")]
+		public string SD_SeasonID
+		{
+			get
+			{
+				return this._SD_SeasonID;
+			}
+			set
+			{
+				if ((this._SD_SeasonID != value))
+				{
+					this.OnSD_SeasonIDChanging(value);
+					this.SendPropertyChanging();
+					this._SD_SeasonID = value;
+					this.SendPropertyChanged("SD_SeasonID");
+					this.OnSD_SeasonIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_FDateScore", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SD_FDateScore
+		{
+			get
+			{
+				return this._SD_FDateScore;
+			}
+			set
+			{
+				if ((this._SD_FDateScore != value))
+				{
+					this.OnSD_FDateScoreChanging(value);
+					this.SendPropertyChanging();
+					this._SD_FDateScore = value;
+					this.SendPropertyChanged("SD_FDateScore");
+					this.OnSD_FDateScoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_DateScore", DbType="Int")]
+		public System.Nullable<int> SD_DateScore
+		{
+			get
+			{
+				return this._SD_DateScore;
+			}
+			set
+			{
+				if ((this._SD_DateScore != value))
+				{
+					this.OnSD_DateScoreChanging(value);
+					this.SendPropertyChanging();
+					this._SD_DateScore = value;
+					this.SendPropertyChanged("SD_DateScore");
+					this.OnSD_DateScoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_MonthScore", DbType="Int")]
+		public System.Nullable<int> SD_MonthScore
+		{
+			get
+			{
+				return this._SD_MonthScore;
+			}
+			set
+			{
+				if ((this._SD_MonthScore != value))
+				{
+					this.OnSD_MonthScoreChanging(value);
+					this.SendPropertyChanging();
+					this._SD_MonthScore = value;
+					this.SendPropertyChanged("SD_MonthScore");
+					this.OnSD_MonthScoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_YearScore", DbType="Int")]
+		public System.Nullable<int> SD_YearScore
+		{
+			get
+			{
+				return this._SD_YearScore;
+			}
+			set
+			{
+				if ((this._SD_YearScore != value))
+				{
+					this.OnSD_YearScoreChanging(value);
+					this.SendPropertyChanging();
+					this._SD_YearScore = value;
+					this.SendPropertyChanged("SD_YearScore");
+					this.OnSD_YearScoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_TimeStart", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SD_TimeStart
+		{
+			get
+			{
+				return this._SD_TimeStart;
+			}
+			set
+			{
+				if ((this._SD_TimeStart != value))
+				{
+					this.OnSD_TimeStartChanging(value);
+					this.SendPropertyChanging();
+					this._SD_TimeStart = value;
+					this.SendPropertyChanged("SD_TimeStart");
+					this.OnSD_TimeStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_TimeEnd", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SD_TimeEnd
+		{
+			get
+			{
+				return this._SD_TimeEnd;
+			}
+			set
+			{
+				if ((this._SD_TimeEnd != value))
+				{
+					this.OnSD_TimeEndChanging(value);
+					this.SendPropertyChanging();
+					this._SD_TimeEnd = value;
+					this.SendPropertyChanged("SD_TimeEnd");
+					this.OnSD_TimeEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_TotalTime", DbType="Int")]
+		public System.Nullable<int> SD_TotalTime
+		{
+			get
+			{
+				return this._SD_TotalTime;
+			}
+			set
+			{
+				if ((this._SD_TotalTime != value))
+				{
+					this.OnSD_TotalTimeChanging(value);
+					this.SendPropertyChanging();
+					this._SD_TotalTime = value;
+					this.SendPropertyChanged("SD_TotalTime");
+					this.OnSD_TotalTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_DateRecord", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SD_DateRecord
+		{
+			get
+			{
+				return this._SD_DateRecord;
+			}
+			set
+			{
+				if ((this._SD_DateRecord != value))
+				{
+					this.OnSD_DateRecordChanging(value);
+					this.SendPropertyChanging();
+					this._SD_DateRecord = value;
+					this.SendPropertyChanged("SD_DateRecord");
+					this.OnSD_DateRecordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_Group", DbType="Char(1)")]
+		public System.Nullable<char> SD_Group
+		{
+			get
+			{
+				return this._SD_Group;
+			}
+			set
+			{
+				if ((this._SD_Group != value))
+				{
+					this.OnSD_GroupChanging(value);
+					this.SendPropertyChanging();
+					this._SD_Group = value;
+					this.SendPropertyChanged("SD_Group");
+					this.OnSD_GroupChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_Category", DbType="Char(2)")]
+		public string SD_Category
+		{
+			get
+			{
+				return this._SD_Category;
+			}
+			set
+			{
+				if ((this._SD_Category != value))
+				{
+					this.OnSD_CategoryChanging(value);
+					this.SendPropertyChanging();
+					this._SD_Category = value;
+					this.SendPropertyChanged("SD_Category");
+					this.OnSD_CategoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_ScoreReal", DbType="Int")]
+		public System.Nullable<int> SD_ScoreReal
+		{
+			get
+			{
+				return this._SD_ScoreReal;
+			}
+			set
+			{
+				if ((this._SD_ScoreReal != value))
+				{
+					this.OnSD_ScoreRealChanging(value);
+					this.SendPropertyChanging();
+					this._SD_ScoreReal = value;
+					this.SendPropertyChanged("SD_ScoreReal");
+					this.OnSD_ScoreRealChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_ScoreAll", DbType="Int")]
+		public System.Nullable<int> SD_ScoreAll
+		{
+			get
+			{
+				return this._SD_ScoreAll;
+			}
+			set
+			{
+				if ((this._SD_ScoreAll != value))
+				{
+					this.OnSD_ScoreAllChanging(value);
+					this.SendPropertyChanging();
+					this._SD_ScoreAll = value;
+					this.SendPropertyChanged("SD_ScoreAll");
+					this.OnSD_ScoreAllChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_Location", DbType="Int")]
+		public System.Nullable<int> SD_Location
+		{
+			get
+			{
+				return this._SD_Location;
+			}
+			set
+			{
+				if ((this._SD_Location != value))
+				{
+					this.OnSD_LocationChanging(value);
+					this.SendPropertyChanging();
+					this._SD_Location = value;
+					this.SendPropertyChanged("SD_Location");
+					this.OnSD_LocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_WorkHour", DbType="Int")]
+		public System.Nullable<int> SD_WorkHour
+		{
+			get
+			{
+				return this._SD_WorkHour;
+			}
+			set
+			{
+				if ((this._SD_WorkHour != value))
+				{
+					this.OnSD_WorkHourChanging(value);
+					this.SendPropertyChanging();
+					this._SD_WorkHour = value;
+					this.SendPropertyChanged("SD_WorkHour");
+					this.OnSD_WorkHourChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_CreatedBy", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string SD_CreatedBy
+		{
+			get
+			{
+				return this._SD_CreatedBy;
+			}
+			set
+			{
+				if ((this._SD_CreatedBy != value))
+				{
+					this.OnSD_CreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._SD_CreatedBy = value;
+					this.SendPropertyChanged("SD_CreatedBy");
+					this.OnSD_CreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_UpdatedBy", DbType="VarChar(100)")]
+		public string SD_UpdatedBy
+		{
+			get
+			{
+				return this._SD_UpdatedBy;
+			}
+			set
+			{
+				if ((this._SD_UpdatedBy != value))
+				{
+					this.OnSD_UpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._SD_UpdatedBy = value;
+					this.SendPropertyChanged("SD_UpdatedBy");
+					this.OnSD_UpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SD_CreatedDate
+		{
+			get
+			{
+				return this._SD_CreatedDate;
+			}
+			set
+			{
+				if ((this._SD_CreatedDate != value))
+				{
+					this.OnSD_CreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._SD_CreatedDate = value;
+					this.SendPropertyChanged("SD_CreatedDate");
+					this.OnSD_CreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_LastUpdatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SD_LastUpdatedDate
+		{
+			get
+			{
+				return this._SD_LastUpdatedDate;
+			}
+			set
+			{
+				if ((this._SD_LastUpdatedDate != value))
+				{
+					this.OnSD_LastUpdatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._SD_LastUpdatedDate = value;
+					this.SendPropertyChanged("SD_LastUpdatedDate");
+					this.OnSD_LastUpdatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_Status", DbType="Char(1)")]
+		public System.Nullable<char> SD_Status
+		{
+			get
+			{
+				return this._SD_Status;
+			}
+			set
+			{
+				if ((this._SD_Status != value))
+				{
+					this.OnSD_StatusChanging(value);
+					this.SendPropertyChanging();
+					this._SD_Status = value;
+					this.SendPropertyChanged("SD_Status");
+					this.OnSD_StatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

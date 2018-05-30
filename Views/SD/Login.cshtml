@@ -8,7 +8,9 @@
 <html>
 
 <head>
+
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/jquery-3.0.0.js"></script>
     <title>Login</title>
@@ -22,6 +24,12 @@
             <div class="form-control">
                 <div class="card-header text-center"><h2> Login S&D</h2></div>
                 <div class="modal-body">
+                    @if (ViewBag.Errormessage != null)
+                    {
+                    <div class="alert alert-danger" role="alert">
+                       @ViewBag.Errormessage
+                    </div>
+                    }
                     <div class="form-group">
                         UserName :
                         <input type="text" name="UserName" class="form-control" />
@@ -31,6 +39,7 @@
                         <input type="password" name="Password" class="form-control" />
                     </div>
                 </div>
+                
                 <div class="modal-footer">
                     <input type="submit" class="form-control btn-success"  />
                 </div>
@@ -38,6 +47,11 @@
             </div>
         }
 
+
+     
     </div>
 </body>
+
+
+
 </html>
