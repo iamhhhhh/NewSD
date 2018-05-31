@@ -23,10 +23,11 @@ namespace NewSD.Controllers
         public ActionResult MyScore(string UserName, string Password)
         {
             var User = AuthenAD(UserName, Password);
-            
-            var Allscore = GetAllscorebyID(User.UserID);
+            var Allscore = GetAllscorebyID(User.First().UserID);
             if (User != null)
-                return View("MyScore",User);
+            {
+                return View("MyScore");
+            }
             else
             {
                 ViewBag.Errormessage = "Username or Password is incorrect";
@@ -53,24 +54,17 @@ namespace NewSD.Controllers
         }
 
         public OperationDataContext context;
-        public dynamic AuthenAD(string UserName,string Password)
+        public List<SD_User> AuthenAD(string UserName,string Password)
         {
 
             var User = from SD_User in context.SD_Users
                        where SD_User.User_login == UserName && SD_User.Status == 'A'
-                       select new User
-                       {
-                           UserID = SD_User.UserID,
-                           UserFullname = SD_User.UserFullname,
-                           Department = SD_User.Department,
-                           SeasonID = SD_User.SeasonID,
-                           User_login = SD_User.User_login
-                        };
+                       select SD_User;
                         
 
             if (User.Count() > 0)
             {
-                return User;
+                return User.ToList();
             }
             else
             {
