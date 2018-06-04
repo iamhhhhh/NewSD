@@ -26,7 +26,7 @@ namespace NewSD.Controllers
             var Allscore = GetAllscorebyID(User.First().UserID);
             if (User != null)
             {
-                return View("MyScore",Allscore);
+                return View("MyScore");
             }
             else
             {
@@ -49,35 +49,17 @@ namespace NewSD.Controllers
         {
             var AllscorebyID = from SD_Score in context.SD_Scores
                                where SD_Score.SD_UserID == id && SD_Score.SD_Status == 'A' && SD_Score.SD_Group == 'S'
-                               select new Score
-                               {
-                                   SD_FDateScore = (DateTime)SD_Score.SD_FDateScore.Value.Date,
-                                   SD_Location= (int)SD_Score.SD_Location,
-                                   SD_TimeStart = (DateTime)SD_Score.SD_TimeStart,
-                                   SD_TimeEnd = (DateTime)SD_Score.SD_TimeEnd,
-                                   SD_TotalTime = (int)SD_Score.SD_TotalTime,
-                                   SD_WorkHour = (int)SD_Score.SD_WorkHour
-
-                               }; 
-            return AllscorebyID.ToList();
+                               select SD_Score; 
+            return AllscorebyID;
         }
 
         public OperationDataContext context;
-        public List<User> AuthenAD(string UserName,string Password)
+        public List<SD_User> AuthenAD(string UserName,string Password)
         {
 
             var User = from SD_User in context.SD_Users
                        where SD_User.User_login == UserName && SD_User.Status == 'A'
-                       select new User
-                       {
-                           UserID = SD_User.UserID,
-                           UserFullname = SD_User.UserFullname,
-                           TeamID = SD_User.TeamID,
-                           SeasonID = SD_User.SeasonID,
-                           StartDateShake = SD_User.StartDateShake,
-                           EndDateShake = SD_User.EndDateShake
-                           
-                       };
+                       select SD_User;
                         
 
             if (User.Count() > 0)
