@@ -123,15 +123,15 @@ namespace NewSD.Linq
 		
 		private string _UserLinename;
 		
-		private System.Nullable<System.DateTime> _StartDateShake;
+		private System.DateTime _StartDateShake;
 		
-		private System.Nullable<System.DateTime> _EndDateShake;
+		private System.DateTime _EndDateShake;
 		
 		private System.Nullable<System.DateTime> _StartDateLine;
 		
 		private System.Nullable<System.DateTime> _EndDateLine;
 		
-		private System.Nullable<int> _TeamID;
+		private int _TeamID;
 		
 		private string _Department;
 		
@@ -171,15 +171,15 @@ namespace NewSD.Linq
     partial void OnUserNicknameChanged();
     partial void OnUserLinenameChanging(string value);
     partial void OnUserLinenameChanged();
-    partial void OnStartDateShakeChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartDateShakeChanging(System.DateTime value);
     partial void OnStartDateShakeChanged();
-    partial void OnEndDateShakeChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndDateShakeChanging(System.DateTime value);
     partial void OnEndDateShakeChanged();
     partial void OnStartDateLineChanging(System.Nullable<System.DateTime> value);
     partial void OnStartDateLineChanged();
     partial void OnEndDateLineChanging(System.Nullable<System.DateTime> value);
     partial void OnEndDateLineChanged();
-    partial void OnTeamIDChanging(System.Nullable<int> value);
+    partial void OnTeamIDChanging(int value);
     partial void OnTeamIDChanged();
     partial void OnDepartmentChanging(string value);
     partial void OnDepartmentChanged();
@@ -313,7 +313,7 @@ namespace NewSD.Linq
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDateShake", DbType="DateTime")]
-		public System.Nullable<System.DateTime> StartDateShake
+		public System.DateTime StartDateShake
 		{
 			get
 			{
@@ -333,7 +333,7 @@ namespace NewSD.Linq
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDateShake", DbType="DateTime")]
-		public System.Nullable<System.DateTime> EndDateShake
+		public System.DateTime EndDateShake
 		{
 			get
 			{
@@ -393,7 +393,7 @@ namespace NewSD.Linq
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamID", DbType="Int")]
-		public System.Nullable<int> TeamID
+		public int TeamID
 		{
 			get
 			{

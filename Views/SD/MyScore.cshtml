@@ -235,39 +235,48 @@
             </form>
         </div>
     </div>
+
+    @model IEnumerable<NewSD.Models.Score>
     <div class="col-lg-6 col-md-6 col-sm-12">
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>วันที่</th>
-                        <th>เวลาเริ่มต้น</th>
-                        <th>เวลาสิ้นสุด</th>
-                        <th>เวลารวม(นาที)</th>
-                        <th>สถานที่</th>
-                        <th>Work Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                        <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                        <td>july@example.com</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div style="overflow:auto;height:640px">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>วันที่</th>
+                            <th>เวลาเริ่มต้น</th>
+                            <th>เวลาสิ้นสุด</th>
+                            <th>เวลารวม(นาที)</th>
+                            <th>สถานที่</th>
+                            <th>Work Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int rowNo = 0;}
+                        @if (Model != null)
+                        {
+                            foreach (var score in Model)
+                            {
+
+                                <tr>
+                                    <td>@{rowNo++;} @rowNo</td>
+                                    <td>@score.SD_FDateScore</td>
+                                    <td>@score.SD_TimeStart</td>
+                                    <td>@score.SD_TimeEnd</td>
+                                    <td>@score.SD_TotalTime</td>
+                                    <td>@score.SD_Location</td>
+                                    <td>@score.SD_WorkHour</td>
+                            </tr>
+
+                                            }
+                                        }
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-      
-   </div>
+</div>
+
+
 
