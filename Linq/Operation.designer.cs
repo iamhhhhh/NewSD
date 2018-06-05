@@ -1603,7 +1603,7 @@ namespace NewSD.Linq
 		
 		private string _SD_UserGroup;
 		
-		private string _SD_SeasonID;
+		private System.Nullable<int> _SD_SeasonID;
 		
 		private System.Nullable<System.DateTime> _SD_FDateScore;
 		
@@ -1655,7 +1655,7 @@ namespace NewSD.Linq
     partial void OnSD_UserDepChanged();
     partial void OnSD_UserGroupChanging(string value);
     partial void OnSD_UserGroupChanged();
-    partial void OnSD_SeasonIDChanging(string value);
+    partial void OnSD_SeasonIDChanging(System.Nullable<int> value);
     partial void OnSD_SeasonIDChanged();
     partial void OnSD_FDateScoreChanging(System.Nullable<System.DateTime> value);
     partial void OnSD_FDateScoreChanged();
@@ -1782,8 +1782,8 @@ namespace NewSD.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_SeasonID", DbType="Char(15)")]
-		public string SD_SeasonID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SD_SeasonID", DbType="Int")]
+		public System.Nullable<int> SD_SeasonID
 		{
 			get
 			{

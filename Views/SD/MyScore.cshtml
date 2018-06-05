@@ -263,8 +263,41 @@
                                 <td>@score.SD_TimeStart.ToString("HH:MM")</td>
                                 <td>@score.SD_TimeEnd.ToString("HH:MM")</td>
                                 <td>@score.SD_TotalTime</td>
-                                <td>@score.SD_Location</td>
-                                <td>@score.SD_WorkHour</td>
+                                @if (@score.SD_Location == 1)
+                                {
+                                    <td>วันทำงาน</td>
+                                }
+                                else if (@score.SD_Location == 2)
+                                {
+                                    <td>นอกเวลาทำงาน</td>
+                                }
+                                else if (@score.SD_Location == 3)
+                                {
+                                    <td>วันหยุด</td>
+                                }
+                                else if (@score.SD_Location == 4)
+                                {
+                                    <td>วันลา</td>
+                                }
+                                else
+                                {
+                                    <td>N/A</td>
+                                }
+
+
+                                @if (@score.SD_WorkHour == 1)
+                                {
+                                    <td>
+                                        ห้อง TAC
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        นอกสถานที่
+                                    </td>
+                                }
+
                             </tr>
                                         }
                                     }

@@ -20,10 +20,10 @@
         <elementListCompartment Id="64fdf52c-b3ce-45a5-b5f6-c33f5aeb9c76" absoluteBounds="3.14, 1.46, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="13a5e22a-6f21-491b-a56d-7943859ef8df" absoluteBounds="0.5, 0.875, 2, 5.4246240234375">
+    <classShape Id="cea96885-cbb1-477a-8ce9-578adad1f251" absoluteBounds="0.75, 0.875, 2, 5.4246240234375">
       <DataClassMoniker Name="/OperationDataContext/SD_Score" />
       <nestedChildShapes>
-        <elementListCompartment Id="1f3836ca-a42b-4ec5-87d0-c9ca14e7fed6" absoluteBounds="0.51500000000000012, 1.335, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1e9714b1-08d4-4799-b052-463ce57ab54f" absoluteBounds="0.76500000000000057, 1.335, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
