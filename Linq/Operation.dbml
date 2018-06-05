@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SD2017" Class="OperationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.0.4;Initial Catalog=SD2017;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SD2017ConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=173.232.15.162;Initial Catalog=SD2017;Persist Security Info=True;User ID=ponddev" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SD2017ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.SD_User" Member="SD_Users">
     <Type Name="SD_User">
       <Column Name="SeasonID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="UserFullname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="UserFullname" Type="System.String" DbType="VarChar(100)" CanBeNull="false" />
       <Column Name="UserNickname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="UserLinename" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="StartDateShake" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />

@@ -252,7 +252,7 @@ namespace NewSD.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserFullname", DbType="VarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserFullname", DbType="VarChar(100)", CanBeNull=false)]
 		public string UserFullname
 		{
 			get

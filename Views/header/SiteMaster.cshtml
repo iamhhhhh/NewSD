@@ -28,7 +28,7 @@
             </div>
             <ul class="list-unstyled components">
                 <li>
-                    @Html.ActionLink("MyScore", "GoMyScore", "SD" , null , null)
+                    @Html.ActionLink("MyScore", "GoMyScore", "SD", null, null)
                 </li>
                 <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">All Score</a>
@@ -71,9 +71,11 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                        @model IEnumerable<NewSD.Models.User>
+                     @using NewSD.Models
                         <ul class="navbar-right">
-                            <li><a href="#"></a></li>
+                            @{ var User = (User)ViewData["User"];}
+                            <li>@User.UserFullname</li>
+                            <li>Season : @User.SeasonID</li>
                         </ul>
                     </div>
                 </div>

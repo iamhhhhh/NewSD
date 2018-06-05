@@ -5,7 +5,7 @@ using System.Web;
 
 namespace NewSD.Models
 {
-    public  class User
+    public class User
     {
         public int SeasonID { get; set; }
         public int UserID { get; set; }
@@ -29,5 +29,8 @@ namespace NewSD.Models
         public string User_login { get; set; }
         public int UserLevel { get; set; }
         public int SystemLevel { get; set; }
+
+
+
     }
 }

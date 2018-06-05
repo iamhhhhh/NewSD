@@ -22,6 +22,7 @@ namespace NewSD.Controllers
         public ActionResult MyScore(string UserName, string Password)
         {
             var User = AuthenAD(UserName, Password);
+            ViewData["User"] = User.First();
             var Allscore = GetAllscorebyID(User.First().UserID,2);
             if (User != null)
             {
@@ -63,23 +64,25 @@ namespace NewSD.Controllers
         }
 
         public OperationDataContext context;
-        public List<SD_User> AuthenAD(string UserName,string Password)
+        public IEnumerable<User> AuthenAD(string UserName,string Password)
         {
 
             var User = from SD_User in context.SD_Users
                        where SD_User.User_login == UserName && SD_User.Status == 'A'
-                       select SD_User;
-                        
+                       select new User
+                       {
+                           UserFullname = SD_User.UserFullname,
+                           UserID = SD_User.UserID,
+                           TeamID = (int)SD_User.TeamID,
+                           SeasonID = SD_User.SeasonID
+                       };
 
             if (User.Count() > 0)
             {
                 return User.ToList();
             }
             else
-            {
                 return null;
-            }
-            
         }
     }
 }
