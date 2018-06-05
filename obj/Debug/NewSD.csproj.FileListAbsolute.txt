@@ -76,3 +76,4 @@ D:\NewSD\NewwSD\NewSD\bin\System.Web.Webpages.Deployment.xml
 D:\NewSD\NewwSD\NewSD\bin\System.Web.Webpages.Razor.xml
 D:\NewSD\NewwSD\NewSD\bin\System.Web.Helpers.xml
 D:\NewSD\NewwSD\NewSD\bin\System.Web.Mvc.xml
+D:\NewSD\NewwSD\NewSD\bin\NewSD.dll.config

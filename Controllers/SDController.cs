@@ -26,7 +26,7 @@ namespace NewSD.Controllers
             var Allscore = GetAllscorebyID(User.First().UserID);
             if (User != null)
             {
-                return View("MyScore");
+                return View("MyScore", Allscore);
             }
             else
             {
@@ -49,6 +49,7 @@ namespace NewSD.Controllers
         {
             var AllscorebyID = from SD_Score in context.SD_Scores
                                where SD_Score.SD_UserID == id && SD_Score.SD_Status == 'A' && SD_Score.SD_Group == 'S'
+                               orderby SD_Score.SD_FDateScore descending
                                select new Score
                                {
                                    SD_FDateScore = (DateTime)SD_Score.SD_FDateScore.Value.Date,
