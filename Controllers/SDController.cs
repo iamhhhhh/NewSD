@@ -49,8 +49,17 @@ namespace NewSD.Controllers
         {
             var AllscorebyID = from SD_Score in context.SD_Scores
                                where SD_Score.SD_UserID == id && SD_Score.SD_Status == 'A' && SD_Score.SD_Group == 'S'
-                               select SD_Score; 
-            return AllscorebyID;
+                               select new Score
+                               {
+                                   SD_FDateScore = (DateTime)SD_Score.SD_FDateScore.Value.Date,
+                                   SD_TimeStart = (DateTime)SD_Score.SD_TimeStart,
+                                   SD_TimeEnd = (DateTime)SD_Score.SD_TimeEnd,
+                                   SD_TotalTime = (int)SD_Score.SD_TotalTime,
+                                   SD_WorkHour = (int)SD_Score.SD_WorkHour,
+                                   SD_Location = (int)SD_Score.SD_Location
+
+                               }; 
+            return AllscorebyID.ToList();
         }
 
         public OperationDataContext context;

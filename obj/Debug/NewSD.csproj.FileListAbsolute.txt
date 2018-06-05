@@ -67,7 +67,6 @@ E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.csprojResolveAssemblyReference.cache
 D:\NewSD\NewwSD\NewSD\obj\Debug\NewSD.dll
 D:\NewSD\NewwSD\NewSD\obj\Debug\NewSD.pdb
 D:\NewSD\NewwSD\NewSD\obj\Debug\NewSD.csprojResolveAssemblyReference.cache
-D:\NewSD\NewwSD\NewSD\bin\NewSD.dll.config
 D:\NewSD\NewwSD\NewSD\bin\NewSD.dll
 D:\NewSD\NewwSD\NewSD\bin\NewSD.pdb
 D:\NewSD\NewwSD\NewSD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
