@@ -23,10 +23,10 @@ namespace NewSD.Controllers
         {
             var User = AuthenAD(UserName, Password);
             ViewData["User"] = User.First();
-            var Allscore = GetAllscorebyID(User.First().UserID,2);
+            ViewBag.Allscore = GetAllscorebyID(User.First().UserID,2);
             if (User != null)
             {
-                return View("MyScore", Allscore);
+                return View("MyScore");
             }
             else
             {
