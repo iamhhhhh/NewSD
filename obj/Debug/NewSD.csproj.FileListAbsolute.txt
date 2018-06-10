@@ -43,7 +43,6 @@ E:\Gitkraken\NewSD\NewSD\bin\roslyn\System.Reflection.Metadata.dll
 E:\Gitkraken\NewSD\NewSD\bin\roslyn\vbc.exe
 E:\Gitkraken\NewSD\NewSD\bin\roslyn\VBCSCompiler.exe
 E:\Gitkraken\NewSD\NewSD\bin\roslyn\VBCSCompiler.exe.config
-E:\Gitkraken\NewSD\NewSD\bin\NewSD.dll.config
 E:\Gitkraken\NewSD\NewSD\bin\NewSD.dll
 E:\Gitkraken\NewSD\NewSD\bin\NewSD.pdb
 E:\Gitkraken\NewSD\NewSD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
@@ -63,7 +62,6 @@ E:\Gitkraken\NewSD\NewSD\bin\System.Web.Helpers.xml
 E:\Gitkraken\NewSD\NewSD\bin\System.Web.Mvc.xml
 E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.dll
 E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.pdb
-E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.csprojResolveAssemblyReference.cache
 D:\NewSD\NewwSD\NewSD\obj\Debug\NewSD.dll
 D:\NewSD\NewwSD\NewSD\obj\Debug\NewSD.pdb
 D:\NewSD\NewwSD\NewSD\obj\Debug\NewSD.csprojResolveAssemblyReference.cache
@@ -77,3 +75,7 @@ D:\NewSD\NewwSD\NewSD\bin\System.Web.Webpages.Razor.xml
 D:\NewSD\NewwSD\NewSD\bin\System.Web.Helpers.xml
 D:\NewSD\NewwSD\NewSD\bin\System.Web.Mvc.xml
 D:\NewSD\NewwSD\NewSD\bin\NewSD.dll.config
+E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.csprojAssemblyReference.cache
+E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.csproj.CoreCompileInputs.cache
+E:\Gitkraken\NewSD\NewSD\obj\Debug\NewSD.csproj.CopyComplete
+E:\Gitkraken\NewSD\NewSD\bin\NewSD.dll.config

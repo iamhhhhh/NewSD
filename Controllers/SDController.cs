@@ -45,7 +45,7 @@ namespace NewSD.Controllers
         }
 
 
-        public IEnumerable GetAllscorebyID(int id, int seasonid)
+        public IEnumerable<Score> GetAllscorebyID(int id, int seasonid)
         {
             var AllscorebyID = from SD_Score in context.SD_Scores
                                where SD_Score.SD_UserID == id && SD_Score.SD_Status == 'A' && SD_Score.SD_Group == 'S' && SD_Score.SD_SeasonID == seasonid
