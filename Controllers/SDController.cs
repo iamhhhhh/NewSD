@@ -23,6 +23,7 @@ namespace NewSD.Controllers
         {
             var User = AuthenAD(UserName, Password);
             ViewData["User"] = User.First();
+            Session["User"] = User.First();
             ViewBag.Allscore = GetAllscorebyID(User.First().UserID,2);
             if (User != null)
             {
@@ -43,6 +44,19 @@ namespace NewSD.Controllers
         {
             return View("MyScore");
         }
+
+        [HttpPost]
+        public ActionResult Addscore(string hrstart, string minstart,string WorkStatus)
+        {
+            string a = hrstart.ToString();
+            return View();
+        }
+
+
+
+
+
+
 
 
         public IEnumerable<Score> GetAllscorebyID(int id, int seasonid)
